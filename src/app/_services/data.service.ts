@@ -10,6 +10,6 @@ export class DataService {
   //  API for components
 
   getToDoItems() {
-    return this.http.get('https://jsonplaceholder.typicode.com/todos');
+    return this.http.get<any[]>('https://jsonplaceholder.typicode.com/todos');
   }
 }

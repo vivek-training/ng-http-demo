@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../_services/data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-playground',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./playground.component.css']
 })
 export class PlaygroundComponent implements OnInit {
+  items$: Observable<any[]>;
 
-  constructor() { }
+  constructor(private dataService: DataService) {}
 
   ngOnInit() {
+    this.items$ = this.dataService.getToDoItems();
   }
-
 }

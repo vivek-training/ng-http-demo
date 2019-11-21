@@ -1,1 +1,29 @@
-<p>playground works!</p>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>
+        ID
+      </th>
+      <th>
+        Title
+      </th>
+      <th>
+        UserID
+      </th>
+      <th>
+        Status
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of items$ | async">
+      <td>{{ item.id }}</td>
+      <td>{{ item.title }}</td>
+      <td>{{ item.userId }}</td>
+      <td>
+        <span class="badge badge-success" *ngIf="item.completed">Complted</span>
+        <span class="badge badge-warning" *ngIf="!item.completed">Pending</span>
+      </td>
+    </tr>
+  </tbody>
+</table>
